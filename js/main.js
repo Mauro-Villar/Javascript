@@ -1,21 +1,31 @@
-/* let nombreUsuario = prompt("ingrese su nombre ")
-let apellidoUsuario = prompt("ingrese su apellido")
-let salida = (nombreUsuario + " " + apellidoUsuario + " " + "ha sido ingresado")
-alert(salida) */
+let i, output,int,mult,d,s,numb
 
-const edadPersona = 19 
-const dineroEnElBolsillo = 5000;
-const dineroDeLaEntrada = 5000;
-const nombreDeLaPersona = "Mauriten"
+const Intput =prompt("Ingresa un numero para saber tu numero de la suerte")
 
-if(((edadPersona >= 18) || (dineroEnElBolsillo >=dineroDeLaEntrada)) || nombreDeLaPersona =="Mauriten"){
-    console.log("Bienvenido a nuestro bar");
-    if(edadPersona !=18){
-        console.log("Felicidades sos mayor de 18 pero no tenes 18")
+int = parseInt(Intput)
+numb = 0
+
+if(int !== 0) { 
+    for(i = 1; i <= 100; i++) {
+        numb++ 
+
+        if (numb > 5) {
+            mult = numb * int
+            d = mult % 10
+            s = mult - d * i
+            output = s + d
+
+            console.log(output)
+
+            alert("El numero de la suerte es: " + output)
+            break;
+        }
+        
+
     }
 }
-    else{
-        console.log("No podes entrar.");
-    }
+else{
+    alert("No podes poner 0")
+}
 
-
+window.location.reload()
