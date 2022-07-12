@@ -1,31 +1,39 @@
-let i, output,int,mult,d,s,numb
+let nombre = prompt("Ingresa tu nombre: ")
 
-const Intput =prompt("Ingresa un numero para saber tu numero de la suerte")
-
-int = parseInt(Intput)
-numb = 0
-
-if(int !== 0) { 
-    for(i = 1; i <= 100; i++) {
-        numb++ 
-
-        if (numb > 5) {
-            mult = numb * int
-            d = mult % 10
-            s = mult - d * i
-            output = s + d
-
-            console.log(output)
-
-            alert("El numero de la suerte es: " + output)
-            break;
-        }
-        
-
-    }
-}
-else{
-    alert("No podes poner 0")
+while(nombre.length < 1){
+    alert("Debe ingresar su nombre.")
+    nombre = prompt("Ingresa tu nombre: ")
 }
 
-window.location.reload()
+let saludar = (nombre) => {alert("Bienvenido " + nombre + ", veremos si promocionas.")}
+
+saludar(nombre)
+
+
+let nota1 = parseInt(prompt("Ingresa la nota del primer parcial"))
+
+while(nota1 > 10 || nota1 < 1){
+    alert("La nota debe ser mayor a 0 y menor o igual a 10")
+    nota1 = parseInt(prompt("Ingresa la nota del primer parcial"))
+} 
+
+
+
+let nota2 = parseInt(prompt("Ingresa la nota del segundo parcial"))
+
+while(nota2 > 10 || nota2 < 1){
+    alert("La nota debe ser mayor a 0 y menor o igual a 10")
+    nota2 = parseInt(prompt("Ingresa la nota del segundo parcial"))
+} 
+
+let promedio = (n1,n2) => {
+    let resultado = (n1+n2)/2
+    return  resultado
+}
+
+
+let promedioNotas = promedio(nota1, nota2)
+
+if(promedioNotas>=7){
+    alert("Felicidades " + nombre + "! Promocionaste con un promedio de: " + promedioNotas)
+}else{ alert("Lo siento " + nombre + ", tu promedio es de " + promedioNotas + " y no promocionaste.") }
