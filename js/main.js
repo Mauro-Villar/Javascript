@@ -1,39 +1,39 @@
-let nombre = prompt("Ingresa tu nombre: ")
+alert('Por favor ingresar los precios de los productos a continuacion')
 
-while(nombre.length < 1){
-    alert("Debe ingresar su nombre.")
-    nombre = prompt("Ingresa tu nombre: ")
+class producto{
+    constructor(categorias,precio){
+        this.categoria= categorias;
+        this.precio= parseInt(precio);
+    }
 }
 
-let saludar = (nombre) => {alert("Bienvenido " + nombre + ", veremos si promocionas.")}
+//Defino Arrays
+const categorias = ['Pizzas', 'Empanadas', 'Nuggets'];
+const productos = [];
 
-saludar(nombre)
+//Recorro el array categorias y pido ingresar los precios
+categorias.forEach( (categorias) => {
 
+    let precioIngresado = prompt(`Precio de las ${categorias}: `);
 
-let nota1 = parseInt(prompt("Ingresa la nota del primer parcial"))
+    //Validacion del ingreso por prompt
+    while(precioIngresado.length < 1 || !isNaN(precioIngresado) == false){
+        alert(`Debe ingresar el precio de las ${categorias}.`)
+        precioIngresado = prompt(`Precio de las ${categorias}: `);
+    }
 
-while(nota1 > 10 || nota1 < 1){
-    alert("La nota debe ser mayor a 0 y menor o igual a 10")
-    nota1 = parseInt(prompt("Ingresa la nota del primer parcial"))
-} 
+    productos.push(new producto(categorias,precioIngresado));
+});
 
+//Muestro el array de objetos y calculo la cantidad de productos y el precio promedio.
+console.log(productos);
 
+let precioTotal = 0;
+productos.forEach( (productos) => {
+    precioTotal += productos.precio;   
+});
 
-let nota2 = parseInt(prompt("Ingresa la nota del segundo parcial"))
+let promedio = precioTotal/productos.length;
 
-while(nota2 > 10 || nota2 < 1){
-    alert("La nota debe ser mayor a 0 y menor o igual a 10")
-    nota2 = parseInt(prompt("Ingresa la nota del segundo parcial"))
-} 
+alert(`Hay un total de ${productos.length} productos.\n El precio promedio es: ${promedio}`)
 
-let promedio = (n1,n2) => {
-    let resultado = (n1+n2)/2
-    return  resultado
-}
-
-
-let promedioNotas = promedio(nota1, nota2)
-
-if(promedioNotas>=7){
-    alert("Felicidades " + nombre + "! Promocionaste con un promedio de: " + promedioNotas)
-}else{ alert("Lo siento " + nombre + ", tu promedio es de " + promedioNotas + " y no promocionaste.") }
