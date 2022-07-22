@@ -1,39 +1,113 @@
-alert('Por favor ingresar los precios de los productos a continuacion')
+//array de objetos para cada producto
+let productos = [
+    {
+        nombre: "Pizza",
+        precio: 500,
+    },
+    {
+        nombre: "Nuggets",
+        precio: 50,
+    },
+    {
+        nombre: "Empanadas",
+        precio: 100,
+    },
+    {
+        nombre: "Franui",
+        precio: 400,
+    },
+  ];
 
-class producto{
-    constructor(categorias,precio){
-        this.categoria= categorias;
-        this.precio= parseInt(precio);
+//inicio de los ingresos de usuario, no me funciona el isNaN(opcion) para evitar el ingreso de texto el prompt
+let opcion = parseInt(prompt("Que queres comprar? \n 1. Pizza \n 2. Nuggets \n 3. Empanadas \n 4. Franui "));
+while (opcion < 1 || opcion > 4){
+    opcion = prompt("Que queres comprar? \n 1. Pizza \n 2. Nuggets \n 3. Empanadas \n 4. Franui ");
+}
+
+
+let buscarProducto = (opcion) => {
+
+    //declaro las variables de la funcion
+    let resultado = [];
+    let cantidad = 0;
+    let total = 0;
+    let totalPersonas = 0;
+    let totalDivision = 0;
+
+    switch(opcion){
+        case 1:
+            resultado = productos.find(productos => productos.nombre == "Pizza");
+
+            cantidad = parseInt(prompt(`Cuanta ${resultado.nombre} queres comprar?`));
+
+            total = resultado.precio * cantidad;
+
+            totalPersonas = parseInt(prompt("Entre cuantas personas se divide la compra?"));
+
+            if(totalPersonas == 0 || totalPersonas == 1){
+                return `El total a pagar es de: $${total}`;
+            }else{
+                    totalDivision = totalPagar(total, totalPersonas);
+                    return `El total a pagar es de $${total} y cada uno debe pagar $${totalDivision}`;
+                }
+            
+        case 2:
+            resultado = productos.find(productos => productos.nombre == "Nuggets");
+
+            cantidad = parseInt(prompt(`Cuantas ${resultado.nombre} queres comprar?`));
+
+            total = resultado.precio * cantidad;
+
+            totalPersonas = parseInt(prompt("Entre cuantas personas se divide la compra?"));
+
+            if(totalPersonas == 0 || totalPersonas == 1){
+                return `El total a pagar es de: $${total}`;
+            }else{
+                    totalDivision = totalPagar(total, totalPersonas);
+                    return `El total a pagar es de $${total} y cada uno debe pagar $${totalDivision}`;
+                }
+        
+        case 3:
+            resultado = productos.find(productos => productos.nombre == "Empanadas");
+
+            cantidad = parseInt(prompt(`Cuantas ${resultado.nombre} queres comprar?`));
+
+            total = resultado.precio * cantidad;
+
+            totalPersonas = parseInt(prompt("Entre cuantas personas se divide la compra?"));
+
+            if(totalPersonas == 0 || totalPersonas == 1){
+                return `El total a pagar es de: $${total}`;
+            }else{
+                    totalDivision = totalPagar(total, totalPersonas);
+                    return `El total a pagar es de $${total} y cada uno debe pagar $${totalDivision}`;
+                }
+
+        
+        case 4:
+            resultado = productos.find(productos => productos.nombre == "Franui");
+
+            cantidad = parseInt(prompt(`Cuantos ${resultado.nombre} queres comprar?`));
+
+            total = resultado.precio * cantidad;
+
+            totalPersonas = parseInt(prompt("Entre cuantas personas se divide la compra?"));
+
+            if(totalPersonas == 0 || totalPersonas == 1){
+                return `El total a pagar es de: $${total}`;
+            }else{
+                    totalDivision = totalPagar(total, totalPersonas);
+                    return `El total a pagar es de $${total} y cada uno debe pagar $${totalDivision}`;
+                }
+
     }
 }
 
-//Defino Arrays
-const categorias = ['Pizzas', 'Empanadas', 'Nuggets'];
-const productos = [];
+//funcion para dividir el total a pagar entre las personas que van a pagar
+let totalPagar = (total,personas) => {
+    return total/personas;
+}
 
-//Recorro el array categorias y pido ingresar los precios
-categorias.forEach( (categorias) => {
-
-    let precioIngresado = prompt(`Precio de las ${categorias}: `);
-
-    //Validacion del ingreso por prompt
-    while(precioIngresado.length < 1 || !isNaN(precioIngresado) == false){
-        alert(`Debe ingresar el precio de las ${categorias}.`)
-        precioIngresado = prompt(`Precio de las ${categorias}: `);
-    }
-
-    productos.push(new producto(categorias,precioIngresado));
-});
-
-//Muestro el array de objetos y calculo la cantidad de productos y el precio promedio.
-console.log(productos);
-
-let precioTotal = 0;
-productos.forEach( (productos) => {
-    precioTotal += productos.precio;   
-});
-
-let promedio = precioTotal/productos.length;
-
-alert(`Hay un total de ${productos.length} productos.\n El precio promedio es: ${promedio}`)
+//busca el producto y calcular el total
+alert(buscarProducto(opcion));
 
