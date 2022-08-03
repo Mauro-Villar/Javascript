@@ -1,113 +1,52 @@
 //array de objetos para cada producto
 let productos = [
-    {
-        nombre: "Pizza",
-        precio: 500,
-    },
-    {
-        nombre: "Nuggets",
-        precio: 50,
-    },
-    {
-        nombre: "Empanadas",
-        precio: 100,
-    },
-    {
-        nombre: "Franui",
-        precio: 400,
-    },
+    { id: 1, nombre: "Pizza", precio: 500, estado: true },
+    { id: 2, nombre: "Nuggets", precio: 50, estado: true },
+    { id: 3, nombre: "Empanadas", precio: 100, estado: true },
+    { id: 4, nombre: "Franui", precio: 400, estado: true },
   ];
-
-//inicio de los ingresos de usuario, no me funciona el isNaN(opcion) para evitar el ingreso de texto el prompt
-let opcion = parseInt(prompt("Que queres comprar? \n 1. Pizza \n 2. Nuggets \n 3. Empanadas \n 4. Franui "));
-while (opcion < 1 || opcion > 4){
-    opcion = prompt("Que queres comprar? \n 1. Pizza \n 2. Nuggets \n 3. Empanadas \n 4. Franui ");
-}
-
-
-let buscarProducto = (opcion) => {
-
-    //declaro las variables de la funcion
-    let resultado = [];
-    let cantidad = 0;
-    let total = 0;
-    let totalPersonas = 0;
-    let totalDivision = 0;
-
-    switch(opcion){
-        case 1:
-            resultado = productos.find(productos => productos.nombre == "Pizza");
-
-            cantidad = parseInt(prompt(`Cuanta ${resultado.nombre} queres comprar?`));
-
-            total = resultado.precio * cantidad;
-
-            totalPersonas = parseInt(prompt("Entre cuantas personas se divide la compra?"));
-
-            if(totalPersonas == 0 || totalPersonas == 1){
-                return `El total a pagar es de: $${total}`;
-            }else{
-                    totalDivision = totalPagar(total, totalPersonas);
-                    return `El total a pagar es de $${total} y cada uno debe pagar $${totalDivision}`;
-                }
-            
-        case 2:
-            resultado = productos.find(productos => productos.nombre == "Nuggets");
-
-            cantidad = parseInt(prompt(`Cuantas ${resultado.nombre} queres comprar?`));
-
-            total = resultado.precio * cantidad;
-
-            totalPersonas = parseInt(prompt("Entre cuantas personas se divide la compra?"));
-
-            if(totalPersonas == 0 || totalPersonas == 1){
-                return `El total a pagar es de: $${total}`;
-            }else{
-                    totalDivision = totalPagar(total, totalPersonas);
-                    return `El total a pagar es de $${total} y cada uno debe pagar $${totalDivision}`;
-                }
-        
-        case 3:
-            resultado = productos.find(productos => productos.nombre == "Empanadas");
-
-            cantidad = parseInt(prompt(`Cuantas ${resultado.nombre} queres comprar?`));
-
-            total = resultado.precio * cantidad;
-
-            totalPersonas = parseInt(prompt("Entre cuantas personas se divide la compra?"));
-
-            if(totalPersonas == 0 || totalPersonas == 1){
-                return `El total a pagar es de: $${total}`;
-            }else{
-                    totalDivision = totalPagar(total, totalPersonas);
-                    return `El total a pagar es de $${total} y cada uno debe pagar $${totalDivision}`;
-                }
-
-        
-        case 4:
-            resultado = productos.find(productos => productos.nombre == "Franui");
-
-            cantidad = parseInt(prompt(`Cuantos ${resultado.nombre} queres comprar?`));
-
-            total = resultado.precio * cantidad;
-
-            totalPersonas = parseInt(prompt("Entre cuantas personas se divide la compra?"));
-
-            if(totalPersonas == 0 || totalPersonas == 1){
-                return `El total a pagar es de: $${total}`;
-            }else{
-                    totalDivision = totalPagar(total, totalPersonas);
-                    return `El total a pagar es de $${total} y cada uno debe pagar $${totalDivision}`;
-                }
-
-    }
-}
-
-//funcion para dividir el total a pagar entre las personas que van a pagar
-let totalPagar = (total,personas) => {
-    return total/personas;
-}
-
-//busca el producto y calcular el total
-alert(buscarProducto(opcion));
-
+  
+  console.log('Desafio Events');
+  
+  //Login
+  //Declaro variables
+  const botonLogin = document.getElementById('sendLogin')
+  const user = document.getElementById('user')
+  const password = document.getElementById('password')
+  
+  //Accion del boton de login para saludar y validar inputs de usuario
+  botonLogin.onclick = e => { 
+      if(validarInputs(user,password)===true){
+          saludar(user)
+      }else{
+          alert('Ingresar nombre de usuario y contraseña')
+      }
+  }
+  
+  //Funcion para validar usuario y contraseña vacios
+  let validarInputs = (user,password) => {
+      if(user.value.length > 0 && password.value.length > 0){
+          return true
+      }else{
+          return false
+      }
+  }
+  
+  //Funcion saluda al nombre del usuario ingresado
+  let saludar = (user) => {
+      alert(`Bienvenido ${user.value}`)
+  }
+  
+  //Boton para mostrar el menu (array de productos)
+  const botonMenu = document.getElementById('verMenu')
+  const menu = document.getElementById('menu')
+  
+  botonMenu.onclick = event => {    
+  
+      productos.forEach( (producto) => {    
+          const listarProductos = document.createElement('li')
+          listarProductos.innerText = producto.nombre
+  
+          menu.append(listarProductos)
+      })
+  }

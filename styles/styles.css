@@ -1,0 +1,23 @@
+.body {
+    background-color: rgb(41, 165, 206);
+  }
+  
+  .h1 {
+    color: white;
+    text-align: center;
+  }
+  
+  .divLogin {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .divMenu {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .button1 {
+    height: 50px;
+    width: 150px;
+  }
