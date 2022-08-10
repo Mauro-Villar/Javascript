@@ -1,23 +1,165 @@
-.body {
-    background-color: rgb(41, 165, 206);
-  }
-  
-  .h1 {
-    color: white;
-    text-align: center;
-  }
-  
-  .divLogin {
-    align-items: center;
-    text-align: center;
-  }
-  
-  .divMenu {
-    align-items: center;
-    text-align: center;
-  }
-  
-  .button1 {
-    height: 50px;
-    width: 150px;
-  }
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: rgb(153, 152, 152);
+}
+
+header{
+  width: 100%;
+  overflow: hidden;
+  background: #252932;
+  margin-bottom: 20px;
+}
+
+.wrapper{
+  width: 90%;
+  max-width: 1000px;
+  margin:auto;
+  overflow: hidden;
+}
+
+header .logo {
+  color: white;
+  font-size: 30px;
+  line-height: 200px;
+  float: left;
+}
+
+header nav{
+  float: right;
+  line-height: 200px;
+}
+
+header nav a{
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  line-height: normal;
+  font-size: 20px;
+  font-weight: bold;
+  -webkit-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease;
+  border-radius: 50px;
+}
+
+header nav a:hover{
+  background: #f56f3a;
+}
+
+.image {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px;
+  padding: 10px;
+}
+
+.divProducto{
+  /* padding: 10px; */
+  margin: 10px;
+}
+
+.add-cart {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+/*  Estilos del carrito  */
+
+.productsContainer {
+  max-width: 650px;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.productos ion-icon {
+  font-size:  25px;
+  color: red;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.cantidad ion-icon {
+  font-size:  25px;
+  color: blue;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.productHeader{
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 4px solid lightgray;
+  /* margin: 0 auto; */
+}
+
+.generic-product-title{
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productTitle {
+  width: 130px;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.product{
+  width: 500px;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  justify-content: space-between;
+}
+
+.productSpan{
+  width: 120px;
+  display: flex;
+  justify-content: center;
+}
+
+/*  Estilos total carrito  */
+
+.carritoTotalTitle{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.totalCarrito{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.product-delete-icon{
+  position:absolute;
+  color: red;
+  cursor: pointer;
+}
+
+.carritoTotalContainer{
+  width: 100%;
+  max-width: 500px;
+}
