@@ -16,6 +16,11 @@ const productos = [
       carts[i].addEventListener('click', () => {
       cartNumbers(productos[i]);
       totalCost(productos[i])
+      Swal.fire(
+        'Producto agregado!',
+        '',
+        'success'
+      )
     })
   }
   
