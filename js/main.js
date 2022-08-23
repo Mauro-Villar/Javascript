@@ -3,7 +3,7 @@ const productos = [
     { id: 1, nombre: "Pizza", precio: 500, inCart: 0,estado: true },
     { id: 2, nombre: "Empanadas", precio: 100, inCart: 0, estado: true },
     { id: 3, nombre: "Nuggets", precio: 50, inCart: 0, estado: true },
-    { id: 4, nombre: "Franui", precio: 400, inCart: 0, estado: true }
+    { id: 4, nombre: "Franui", precio: 450, inCart: 0, estado: true }
   ];
   
   
